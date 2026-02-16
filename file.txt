@@ -1,2 +1,3 @@
 file one string one
 added more stringhs to the file!
+added one more string to the filegit add file.txt
