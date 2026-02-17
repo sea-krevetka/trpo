@@ -3,4 +3,3 @@ add:3 hi hello hii
 cat doing cat things *pushes ; off the line*
 added one more string to the filegit add file.txt
 changed lines in the clone file yay!
->>>>>>> de62499dfe0d9167e5f1ff526b791da9deb82938
