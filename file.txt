@@ -1,3 +1,109 @@
-file one string one
-added more stringhs to the file!
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.amiinsane{
+    background-color: #030118;
+}
+
+body {
+  font-family: 'Corbel', 'Segoe UI', 'Helvetica Neue', sans-serif;
+  color: #094D92;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('bg.png');
+  background-repeat: repeat;
+  background-size: cover;
+  filter: blur(1px);
+  animation: slowPanRight 100s linear infinite;
+  z-index: -2;
+  pointer-events: none;
+  will-change: background-position;
+  transform: translateZ(0);
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(81, 81, 189, 0.3);
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes slowPanRight {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100vw 0;
+  }
+}
+
+.wrapper {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.tasks-container {
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 20px 30px -10px rgba(9, 77, 146, 0.2),
+              0 8px 15px rgba(107, 126, 118, 0.15),
+              0 0 0 1px rgba(255, 255, 255, 0.5);
+  padding: 2.5rem 2.5rem;
+  margin-bottom: 2rem;
+  width: 85%;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background-color: #ddd3cf;
+}
+
+
+.header_title {
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+.main_header {
+  color: #b94562;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 0.1rem;
+  font-size: 4.1rem;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(119, 51, 68, 0.1);
+  backdrop-filter: blur(2px);
+}
+changing file, added css just to be dramatic
+
+i don't get why i can't see da commits
 added one more string to the filegit add file.txt
+:P
+:P
+:P
