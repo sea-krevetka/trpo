@@ -50,7 +50,7 @@ void custom_trmm(CBLAS_SIDE side, CBLAS_UPLO uplo, CBLAS_TRANSPOSE transA,
             }
         }
     } else {
-        // B = alpha * B * op(A)
+        // INTENTIONAL BUG: B = alpha * B * op(A) - incorrect multiplication order
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 T sum = 0;
@@ -79,7 +79,7 @@ void custom_trmm(CBLAS_SIDE side, CBLAS_UPLO uplo, CBLAS_TRANSPOSE transA,
                         }
                     }
                 }
-                B[i * ldb + j] = alpha * sum;
+                B[i * ldb + j] = sum;  // BUG: Missing alpha multiplication!
             }
         }
     }
