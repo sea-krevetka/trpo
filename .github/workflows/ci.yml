@@ -40,8 +40,6 @@ jobs:
             -I/usr/include -o test_openblas test_cblas_level3.c \
             -L/usr/lib/x86_64-linux-gnu -lopenblas -lm
         
-        cd ..
-        
     - name: Run Interface Tests
       run: |
         echo "=== Running CBLAS Interface Tests ==="
@@ -59,8 +57,6 @@ jobs:
           echo "ERROR: test_openblas not found"
           exit 1
         fi
-        
-        cd ..
         
     - name: Build Performance Benchmarks
       run: |
@@ -84,8 +80,6 @@ jobs:
           echo "benchmark.cpp not found"
         fi
         
-        cd ..
-        
     - name: Run Performance Benchmarks
       run: |
         echo "=== Running Performance Benchmarks ==="
@@ -102,8 +96,6 @@ jobs:
         else
           echo "Benchmark executable not found"
         fi
-        
-        cd ..
         
     - name: Verify custom TRMM implementation
       run: |
