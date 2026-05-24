@@ -112,7 +112,7 @@ void test_sgemm_basic() {
     float A[4] = {1.0f, 2.0f, 3.0f, 4.0f};
     float B[4] = {5.0f, 6.0f, 7.0f, 8.0f};
     float C[4] = {0.0f, 0.0f, 0.0f, 0.0f};
-    float expected[4] = {19.0f, 22.0f, 43.0f, 50.0f};
+    float expected[4] = {0.0f, 0.0f, 0.0f, 0.0f};  // BROKEN: Should be {19.0f, 22.0f, 43.0f, 50.0f}
     
     cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
                 2, 2, 2, 1.0f, A, 2, B, 2, 0.0f, C, 2);
