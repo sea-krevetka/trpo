@@ -40,28 +40,12 @@ jobs:
             -I/usr/include -o test_openblas test_cblas_level3.c \
             -L/usr/lib/x86_64-linux-gnu -lopenblas -lm
         
-        echo "Building with fake BLAS (for standalone testing)..."
-        gcc -Wall -Wextra -std=c99 -fPIC -c -o fake_cblas.o fake_cblas.c
-        ar rcs libfakeblas.a fake_cblas.o
-        gcc -Wall -Wextra -std=c99 -g -I. \
-            -o test_fake test_cblas_level3.c -L. -lfakeblas -lm
-        
         cd ..
         
     - name: Run Interface Tests
       run: |
         echo "=== Running CBLAS Interface Tests ==="
         cd test_cblas_l3
-        
-        if [ -f test_fake ]; then
-          echo "Running fake BLAS tests..."
-          ./test_fake
-          if [ $? -ne 0 ]; then
-            echo "ERROR: Fake BLAS tests failed!"
-            exit 1
-          fi
-          echo "✓ Fake BLAS tests passed"
-        fi
         
         if [ -f test_openblas ]; then
           echo "Running OpenBLAS tests..."
@@ -71,6 +55,9 @@ jobs:
             exit 1
           fi
           echo "✓ OpenBLAS tests passed"
+        else
+          echo "ERROR: test_openblas not found"
+          exit 1
         fi
         
         cd ..
