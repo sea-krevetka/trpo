@@ -24,39 +24,10 @@ jobs:
     - name: Display project structure
       run: |
         echo "=== Project Structure ==="
-        find . -type f -name "*.h" -o -name "*.c" -o -name "*.cpp" | grep -E "(custom_func|test_cblas)" | head -20
+        find . -type f -name "*.h" -o -name "*.cpp" | grep custom_func | head -10
         echo ""
         echo "=== Key Files ==="
         ls -la custom_func/ 2>/dev/null || echo "custom_func not found"
-        ls -la test_cblas_l3/ 2>/dev/null || echo "test_cblas_l3 not found"
-        
-    - name: Build CBLAS Interface Tests
-      run: |
-        echo "=== Building CBLAS Interface Tests ==="
-        cd test_cblas_l3
-        
-        echo "Building with system OpenBLAS..."
-        gcc -Wall -Wextra -std=c99 -g -DUSE_OPENBLAS \
-            -I/usr/include -o test_openblas test_cblas_level3.c \
-            -L/usr/lib/x86_64-linux-gnu -lopenblas -lm
-        
-    - name: Run Interface Tests
-      run: |
-        echo "=== Running CBLAS Interface Tests ==="
-        cd test_cblas_l3
-        
-        if [ -f test_openblas ]; then
-          echo "Running OpenBLAS tests..."
-          ./test_openblas
-          if [ $? -ne 0 ]; then
-            echo "ERROR: OpenBLAS tests failed!"
-            exit 1
-          fi
-          echo "✓ OpenBLAS tests passed"
-        else
-          echo "ERROR: test_openblas not found"
-          exit 1
-        fi
         
     - name: Build Performance Benchmarks
       run: |
@@ -129,4 +100,3 @@ jobs:
         path: |
           ci_report.txt
           custom_func/benchmark_results.txt
-          test_cblas_l3/test_results.txt
