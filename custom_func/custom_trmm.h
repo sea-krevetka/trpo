@@ -1,3 +1,9 @@
+/**
+ * Custom TRMM (Triangular Matrix Multiplication) Implementation
+ * BLAS Level 3 Operation
+ * Optimized for performance with proper memory alignment
+ */
+
 #ifndef CUSTOM_TRMM_H
 #define CUSTOM_TRMM_H
 
