@@ -10,11 +10,7 @@
 #include <cstring>
 #include <algorithm>
 #include <complex>
-
-enum CBLAS_SIDE { CblasLeft, CblasRight };
-enum CBLAS_UPLO { CblasUpper, CblasLower };
-enum CBLAS_TRANSPOSE { CblasNoTrans, CblasTrans, CblasConjTrans };
-enum CBLAS_DIAG { CblasUnit, CblasNonUnit };
+#include <cblas.h>
 
 template <typename T>
 void custom_trmm(CBLAS_SIDE side, CBLAS_UPLO uplo, CBLAS_TRANSPOSE transA,
