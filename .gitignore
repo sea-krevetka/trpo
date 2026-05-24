@@ -1,4 +1,4 @@
 /OpenBLAS/
 *.zip
 sandbox/
-/test_cblas_l3/fake_cblas.c
+/test_cblas_l3/
